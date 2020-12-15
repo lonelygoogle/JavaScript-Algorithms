@@ -12,7 +12,7 @@ class Tree {
         this.root = null
     }
     compare(e1,e2){
-        console.log(e1,e2)
+        // console.log(e1,e2)
         return e1 > e2
     }
     add (element) {
@@ -49,4 +49,5 @@ tree.add(6);
 tree.add(15);
 tree.add(22);
 tree.add(20);
-console.dir(tree,{depth:1000})
+// console.dir(tree,{depth:1000})
+
