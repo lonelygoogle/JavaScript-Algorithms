@@ -28,19 +28,25 @@ var levelOrder = function(root) {
     return arr
 };
 
-// 逐行打印
-var levelOrder2 = function(root) {
+// 逐行锯齿打印
+var zigzagLevelOrder = function(root) {
     if (root == null) {
         return []
     }
     const stack = [root]
     const arr = []
     let current = null
+    let leftOrder = true
     while (stack.length !== 0) {  // [3 9 20 ]
         let tmp = []
         for (let i = stack.length; i>0; i--){
             let current = stack.shift()
-            tmp.push(current.val)
+            if (leftOrder) {
+                tmp.push(current.val)
+            } else {
+                tmp.unshift(current.val)
+            }
+            // leftOrder = !leftOrder
             if (current.left) {
                 stack.push(current.left)
             }
@@ -49,6 +55,7 @@ var levelOrder2 = function(root) {
             }
         }
         arr.push(tmp)
+        leftOrder = !leftOrder
     }
     return arr
 };
