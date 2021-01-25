@@ -1,21 +1,22 @@
 /**
  * @param {string} s
- * @param {string} t
- * @return {string}
+ * @param {string} p
+ * @return {number[]}
  */
-var minWindow = function (s, t) {
+
+var findAnagrams = function (s, p) {
   let need = new Map(),
     window = new Map(),
-    n = t.length,
+    n = p.length,
     left = 0,
     right = 0,
     valid = 0,
-    len = Infinity
-  for (let i in t) {
-    if (!need.has(t[i])) {
-      need.set(t[i], 1)
+    res = []
+  for (let i in p) {
+    if (!need.has(p[i])) {
+      need.set(p[i], 1)
     } else {
-      need.set(t[i], need.get(t[i]) + 1)
+      need.set(p[i], need.get(p[i]) + 1)
     }
   }
   while (right < s.length) {
@@ -30,10 +31,9 @@ var minWindow = function (s, t) {
       if (need.get(c) === window.get(c)) valid++
     }
     // 判断左侧窗口是否要收缩
-    while (valid === need.size) {
-      if (right - left < len) {
-        start = left
-        len = right - left
+    while (right - left >= n) {
+      if (valid === need.size) {
+        res.push(left)
       }
       let d = s[left]
       left++
@@ -43,8 +43,5 @@ var minWindow = function (s, t) {
       }
     }
   }
-  return len === Infinity? '': s.substr(start, len)
+  return res
 }
-
-console.log(minWindow("ADOBECODEBANC", "ABC"))
-
