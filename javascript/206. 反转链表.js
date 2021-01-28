@@ -9,7 +9,8 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function(head) {
+// 迭代法
+var reverseList = function (head) {
   let pre = null
   let cur = head
   let nextTmp
@@ -20,4 +21,13 @@ var reverseList = function(head) {
     cur = nextTmp
   }
   return pre
-};
+}
+
+// 递归法
+var reverseList = function (head) {
+  if (head == null || head.next == null) return head
+  let last = reverseList(head.next)
+  head.next.next = head
+  head.next = null
+  return last
+}
