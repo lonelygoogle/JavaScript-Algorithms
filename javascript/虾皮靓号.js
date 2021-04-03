@@ -8,16 +8,16 @@ function isNiceNumber(str) {
   for (let i = 0; i < str.length; i++) {
     let count = 1;
     for (let j = i + 1; j < str.length; j++) {
-      if (str[j] === str[i] || str[j] === str[j - 1] + 1) {
+      if (str[j] === str[i] || parseInt(str[j]) === parseInt(str[j-1]) + 1) {
         count++;
       } else {
         break;
       }
-      console.log("count", count);
+      // console.log("count", count);
       if (count >= 4) return true;
     }
   }
   return false;
 }
 
-console.log(isNiceNumber("12341111"));
+console.log(isNiceNumber("11194567"));
