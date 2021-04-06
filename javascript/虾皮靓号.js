@@ -43,6 +43,7 @@ function isNiceNumberZHOU(str) {
   return false;
 }
 
+// 双指针法
 function isNiceNumber(str) {
   if (str.length < 4) return false;
   let i = 0,
