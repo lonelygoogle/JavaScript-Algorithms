@@ -35,7 +35,6 @@ var levelOrder2 = function(root) {
     }
     const stack = [root]
     const arr = []
-    let current = null
     while (stack.length !== 0) {  // [3 9 20 ]
         let tmp = []
         for (let i = stack.length; i>0; i--){

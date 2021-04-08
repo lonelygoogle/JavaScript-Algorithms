@@ -45,6 +45,7 @@ var invertTree = function(root) {
     //   const right = root.right;
     //   root.right = invertTree(left);
     //   root.left = invertTree(right);
+    //   return root
     // 我们用stack来模拟递归
     // 本质上递归是利用了执行栈，执行栈也是一种栈
     // 其实这里使用队列也是一样的，因为这里顺序不重要
