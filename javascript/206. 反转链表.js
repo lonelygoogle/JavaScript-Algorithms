@@ -9,7 +9,7 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-// 迭代法
+// 迭代法 比较容易理解 空间复杂度O1
 var reverseList = function (head) {
   let pre = null
   let cur = head
@@ -23,7 +23,7 @@ var reverseList = function (head) {
   return pre
 }
 
-// 递归法
+// 递归法 比较难理解 空间复杂度On
 var reverseList = function (head) {
   if (head == null || head.next == null) return head
   let last = reverseList(head.next)
