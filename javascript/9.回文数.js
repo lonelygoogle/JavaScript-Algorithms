@@ -12,7 +12,6 @@
 //     return false;
 //   }
 // };
-
 // 优化版算法
 var isPalindrome = function (x) {
   if (x < 0 || (x % 10 == 0 && x != 0)) return false;
