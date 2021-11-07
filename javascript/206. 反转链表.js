@@ -26,8 +26,8 @@ var reverseList = function (head) {
 // 递归法 比较难理解 空间复杂度On
 var reverseList = function (head) {
   if (head == null || head.next == null) return head
-  let last = reverseList(head.next)
+  let newHead = reverseList(head.next)
   head.next.next = head
-  head.next = null
-  return last
+  head.next = null // 需要注意的是的下一个节点必须指向 varnothing。如果忽略了这一点，链表中可能会产生环。
+  return newHead
 }
