@@ -31,4 +31,9 @@ Array.prototype.MyFlat = function () {
     return result
 }
 
-console.log(arr.MyFlat())
+// console.log(arr.MyFlat())
+
+const flatArr = function (arr) {
+    return arr.reduce((pre,cur) => pre.concat(Array.isArray(cur)? flatArr(cur): cur),[])
+}
+console.log(flatArr(arr))

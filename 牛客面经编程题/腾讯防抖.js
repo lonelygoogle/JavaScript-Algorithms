@@ -13,14 +13,14 @@ function debounce(fn, delay) {
 
 // 定时器版
 function throttle1 (fun, wait){
-  let timeout = null
+  let timer = null
   return function(...args){
     let context = this
-    if(!timeout){
-      timeout = setTimeout(() => {
+    if(!timer){
+      timer = setTimeout(() => {
         // fun.call(context, ...args)
         fun.apply(context, args)
-        timeout = null 
+        timer = null 
       }, wait)
     }
   }

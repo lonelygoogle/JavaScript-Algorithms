@@ -50,3 +50,16 @@ function uniqueArr(arr) {
 let a = [12, 23, 12, 15, 25, 23, 25, 14, 16, 12, 12];
 let b = uniqueArr(a)
 console.log(b)
+
+let uniqueArrReduce = function (arr) {
+    return arr.reduce((pre,cur)=>{
+        if(pre.includes(cur)){ return pre}
+        else{ return pre.concat(cur)}
+    }, [])
+}
+    // a.reduce((pre,cur)=>{
+    //     if(pre.includes(cur)){ return pre}
+    //     else{ return pre.concat(cur)}
+    // }, [])
+
+console.log('uniqueArrReduce', uniqueArrReduce(a))

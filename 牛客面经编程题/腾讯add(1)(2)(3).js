@@ -1,23 +1,22 @@
-function curry(fn, args) {
-  let length = fn.length
-  args = args || []
-  return function () {
-    let _args = args.slice(0)
-    console.log('arguments.length', arguments.length)
-    for (let i = 0; i < arguments.length; i++) {
-      const item = arguments[i]
-      _args.push(item)
-    }
-    if (_args.length < length) {
-      return curry.call(this, fn, _args)
+// ES5版本
+function curry(func) {
+  return function curried(...args) {
+    if (args.length >= func.length) {
+      return func.apply(this, args);
     } else {
-      // return没有写就不行
-      return fn.apply(this, _args)
+      return function(...args2) {
+        return curried.apply(this, args.concat(args2));
+      }
     }
-  }
+  };
 }
 
-function add1(x, y, z) {
+// ES6版本
+// const curry = (fn, ...args) => 
+//   args.length >= fn.length ?
+//   fn(...args) :
+//   (..._args)=> curry(fn, ..._args, ...args)
+  function add1(x, y, z) {
   return x + y + z
 }
 const add = curry(add1)
