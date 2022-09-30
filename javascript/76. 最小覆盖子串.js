@@ -10,6 +10,7 @@ var minWindow = function (s, t) {
     left = 0,
     right = 0,
     valid = 0,
+    start=0,
     len = Infinity
   for (let i in t) {
     if (!need.has(t[i])) {

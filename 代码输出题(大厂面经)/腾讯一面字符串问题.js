@@ -6,3 +6,10 @@
 
 let a = 'abc345efgabcab'
 console.log( a.replace(/[a|b|c]/g, ''));
+console.log(a.replace(/[0-9]/g, function (val) {
+    return `[${val}]`
+}))
+
+console.log(a.replace(/[0-9]/g, function (val) {
+    return `${(+val) *2}`
+}))

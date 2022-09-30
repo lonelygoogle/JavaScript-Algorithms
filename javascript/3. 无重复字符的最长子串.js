@@ -27,3 +27,40 @@ var lengthOfLongestSubstring = function (s) {
   }
   return res
 }
+
+// 简单版（用对象）
+function lengthOfLongestSubstring(s) {
+  const window = {};
+  for (const c of s) {
+    window[c] = 0;
+  }
+
+  let left = 0,
+    right = 0;
+  let result = 0; // 记录结果
+  while (right < s.length) {
+    // c 是将移入窗口的字符
+    const c = s[right];
+    // 右移窗口
+    right++;
+
+    // 进行窗口内数据的一系列更新
+    window[c]++;
+
+    // 判断左侧窗口是否要收缩
+    while (window[c] > 1) {
+      // d 是将移出窗口的字符
+      const d = s[left];
+      // 左移窗口
+      left++;
+
+      // 进行窗口内数据的一系列更新
+      window[d]--;
+    }
+
+    // 在这里更新答案
+    result = Math.max(result, right - left);
+  }
+
+  return result;
+}
