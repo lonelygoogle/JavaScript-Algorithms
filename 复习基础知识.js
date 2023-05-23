@@ -4,3 +4,7 @@ const object1 = {
   };
 let a = Object.entries(object1)
 console.log(a);
+
+var str = "google runoob taobao";
+var patt1 = /\s/g;
+console.log('=====', str.match(patt1));

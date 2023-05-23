@@ -37,6 +37,3 @@ var rob = function (nums) {
   }
   return dp_i
 }
-
-let arr = [1, 2, 3, 1]
-console.log(rob(arr))

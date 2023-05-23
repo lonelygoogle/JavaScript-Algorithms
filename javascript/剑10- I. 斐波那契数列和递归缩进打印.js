@@ -28,17 +28,17 @@ var rawFib = function (n) {
   indentPrint(count++, n)
   if (n ==0) {
     // 然后在所有 return 语句之前调用 printIndent(--count) 并打印返回值。
-    printReturn(count--, 0)
+    printReturn(--count, 0)
     return 0
   }
   if (n ==1) {
     // 然后在所有 return 语句之前调用 printIndent(--count) 并打印返回值。
-    printReturn(count--,1)
+    printReturn(--count,1)
     return 1
   }
   let res = rawFib(n-1) + rawFib(n-2)
   // 然后在所有 return 语句之前调用 printIndent(--count) 并打印返回值。
-  printReturn(count--,res)
+  printReturn(--count,res)
   return res
 }
 

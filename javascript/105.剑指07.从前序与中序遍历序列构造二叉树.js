@@ -10,7 +10,7 @@
  * @param {number[]} inorder
  * @return {TreeNode}
  */
-const buildTree = function(preorder, inorder) {
+const buildTree1 = function(preorder, inorder) {
   if (preorder.length === 0) return null
   const root = new TreeNode(preorder[0])
    // mid是中序遍历根节点的索引, 也是前序遍历中左子树的数量

@@ -8,6 +8,7 @@ var isValid = function (s) {
   const stack = []
   for (c of s) {
     if (c === '(' || c === '{' || c === '[') {
+      // 左括号的情况
       stack.push(c)
     } else {
       // 右括号的情况
