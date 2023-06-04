@@ -11,28 +11,24 @@ var minWindow = function (s, t) {
     valid = 0,
     start = 0,
     len = Infinity;
-  for (let i in t) {
-    if (!need.has(t[i])) {
-      need.set(t[i], 1);
-    } else {
-      need.set(t[i], need.get(t[i]) + 1);
-    }
+  for (let c of t) {
+    need.set(c, (need.get(c) || 0) + 1);
   }
-  console.log(need);
-  console.log(need.size);
+  //   console.log(need);
+  //   console.log(need.size);
   while (right < s.length) {
     let c = s[right];
-    right++;
     if (need.has(c)) {
-      if (!window.has(c)) {
-        window.set(c, 1);
-      } else {
-        window.set(c, window.get(c) + 1);
+      window.set(c, (window.get(c) || 0) + 1);
+      if (window.get(c) === need.get(c)) {
+        valid++;
       }
-      if (need.get(c) === window.get(c)) valid++;
     }
-    // 判断左侧窗口是否要收缩
+    right++;
     while (valid === need.size) {
+      // 满足条件 且长度更短,更新输入结果 start和len
+      console.log("left right length", left, right, s.length);
+      console.log(s.length);
       if (right - left < len) {
         start = left;
         len = right - left;
@@ -40,13 +36,14 @@ var minWindow = function (s, t) {
       let d = s[left];
       left++;
       if (need.has(d)) {
-        if (window.get(d) === need.get(d)) valid--;
         window.set(d, window.get(d) - 1);
+        if (window.get(d) < need.get(d)) {
+          valid--;
+        }
       }
     }
   }
-  console.log(start, len);
-  return len === Infinity ? "" : s.substring(start, len);
+  return len === Infinity ? "" : s.substring(start, len + start);
 };
 
 console.log(minWindow("ADOBECODEBANC", "ABC"));
