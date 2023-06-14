@@ -15,11 +15,12 @@ root.left.right = new TreeNode(5);
 // root.right.left = new TreeNode(6);
 // root.right.right = new TreeNode(7);
 
-// 遍历一遍二叉树得出答案
+// 遍历一遍二叉树得出答案 遍历是return void 维护外部变量
 let preOrderTraversal = (node) => {
   let res = [];
   let travesal = (node) => {
     if (node == null) return;
+    // 前序位置
     res.push(node.val);
     travesal(node.left);
     travesal(node.right);
@@ -28,11 +29,12 @@ let preOrderTraversal = (node) => {
   return res;
 };
 
-// 通过分解问题计算答案
+// 通过分解问题计算答案 retuan value
 let preOrderTraversal2 = (node) => {
   let res = [];
   // 区别：1版本是return 这里是return []
   if (node == null) return res;
+  // 前序位置
   res.push(node.val);
   res = res.concat(preOrderTraversal2(node.left));
   res = res.concat(preOrderTraversal2(node.right));
