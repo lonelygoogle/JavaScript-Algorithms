@@ -42,4 +42,4 @@ var rawFib = function (n) {
   return res
 }
 
-console.log('结果是',rawFib(6))
+console.log('结果是',fib(20))
